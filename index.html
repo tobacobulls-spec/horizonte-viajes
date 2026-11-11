@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brújula Viajes | Agencia de viajes por Colombia</title>
+  <meta name="description" content="Brújula Viajes diseña planes por Colombia con itinerario, hotel y transporte incluidos. Elige destino, cotiza en línea y viaja sin complicaciones.">
+  <link rel="icon" href="img/hero.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="inicio">
+    <div class="wrap header-in">
+      <a class="brand" href="#inicio" aria-label="Brújula Viajes, ir al inicio">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <polygon points="20,6 25,20 20,34 15,20" fill="#FFB020"/>
+          <polygon points="20,6 25,20 20,20" fill="currentColor"/>
+          <circle cx="20" cy="20" r="2.4" fill="#10293A"/>
+        </svg>
+        <span>Brújula Viajes</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="menu" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#destinos">Destinos</a></li>
+          <li><a href="#paquetes">Paquetes</a></li>
+          <li><a href="#proceso">Cómo viajar con nosotros</a></li>
+          <li><a href="#cotizador">Cotizar</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+          <li><a class="btn btn-sun btn-sm" href="#contacto">Hablar con un asesor</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <img class="hero-img" src="img/hero.svg" alt="" width="1200" height="800">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-titulo">Colombia tiene un plan para cada puente festivo</h1>
+          <p>Armamos tu viaje con hotel, transporte y guía local. Tú eliges a dónde; nosotros resolvemos el resto.</p>
+          <div class="hero-actions">
+            <a class="btn btn-sun" href="#destinos">Ver destinos</a>
+            <a class="btn btn-ghost" href="#cotizador">Cotizar mi viaje</a>
+          </div>
+        </div>
+
+        <form class="pass" id="passForm" aria-labelledby="pass-titulo">
+          <div class="pass-head">
+            <h2 id="pass-titulo">Encuentra tu destino</h2>
+            <span class="pass-code" aria-hidden="true">BV 2026</span>
+          </div>
+          <div class="pass-fields">
+            <label for="passTipo">¿Qué buscas?
+              <select id="passTipo" name="tipo">
+                <option value="todos">Cualquier plan</option>
+                <option value="playa">Playa y mar</option>
+                <option value="montana">Montaña y café</option>
+                <option value="ciudad">Ciudad y cultura</option>
+                <option value="naturaleza">Selva y desierto</option>
+              </select>
+            </label>
+            <label for="passPersonas">Viajeros
+              <input id="passPersonas" type="number" name="personas" min="1" max="12" value="2" inputmode="numeric">
+            </label>
+          </div>
+          <button class="btn btn-ink btn-block" type="submit">Mostrar planes</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CIFRAS -->
+    <section class="strip" aria-label="Datos de la agencia">
+      <div class="wrap strip-in">
+        <p><strong>6</strong> destinos con itinerario propio</p>
+        <p><strong>3</strong> tipos de paquete según tu presupuesto</p>
+        <p><strong>24 h</strong> para recibir tu cotización</p>
+      </div>
+    </section>
+
+    <!-- DESTINOS -->
+    <section class="section" id="destinos" aria-labelledby="destinos-titulo">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="destinos-titulo">Seis destinos, seis ritmos distintos</h2>
+          <p>Filtra por tipo de plan y abre cada tarjeta para ver qué incluye.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filtrar destinos">
+          <button class="chip is-active" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="chip" data-filter="playa" aria-pressed="false">Playa</button>
+          <button class="chip" data-filter="montana" aria-pressed="false">Montaña</button>
+          <button class="chip" data-filter="ciudad" aria-pressed="false">Ciudad</button>
+          <button class="chip" data-filter="naturaleza" aria-pressed="false">Naturaleza</button>
+        </div>
+        <p class="filter-status" id="filterStatus" role="status" aria-live="polite"></p>
+
+        <div class="cards" id="cards">
+          <article class="card card-wide" data-tipo="ciudad">
+            <figure><img src="img/cartagena.svg" alt="Casas coloniales de colores en el centro amurallado de Cartagena" loading="lazy" width="1200" height="800"></figure>
+            <div class="card-body">
+              <h3>Cartagena de Indias</h3>
+              <p class="meta">4 días · desde $1.450.000 por persona</p>
+              <p>Murallas, balcones floridos y atardeceres en el Caribe.</p>
+              <details>
+                <summary>Qué incluye</summary>
+                <ul>
+                  <li>Hotel en el centro histórico</li>
+                  <li>Tour a pie por la ciudad amurallada</li>
+                  <li>Día de playa en las Islas del Rosario</li>
+                </ul>
+              </details>
+              <a class="link" href="#cotizador" data-destino="cartagena">Cotizar Cartagena</a>
+            </div>
+          </article>
+
+          <article class="card" data-tipo="playa">
+            <figure><img src="img/sanandres.svg" alt="Mar de siete colores frente a una isla con palmeras en San Andrés" loading="lazy" width="1200" height="800"></figure>
+            <div class="card-body">
+              <h3>San Andrés</h3>
+              <p class="meta">5 días · desde $2.350.000 por persona</p>
+              <p>El mar de siete colores a una hora de vuelo.</p>
+              <details>
+                <summary>Qué incluye</summary>
+                <ul>
+                  <li>Tiquetes aéreos ida y vuelta</li>
+                  <li>Hotel frente al mar</li>
+                  <li>Paseo en lancha a Johnny Cay</li>
+                </ul>
+              </details>
+              <a class="link" href="#cotizador" data-destino="sanandres">Cotizar San Andrés</a>
+            </div>
+          </article>
+
+          <article class="card" data-tipo="montana">
+            <figure><img src="img/cafe.svg" alt="Montañas verdes con cafetales y una finca en el Eje Cafetero" loading="lazy" width="1200" height="800"></figure>
+            <div class="card-body">
+              <h3>Eje Cafetero</h3>
+              <p class="meta">4 días · desde $1.190.000 por persona</p>
+              <p>Fincas cafeteras, pueblos de colores y clima fresco.</p>
+              <details>
+                <summary>Qué incluye</summary>
+                <ul>
+                  <li>Alojamiento en finca tradicional</li>
+                  <li>Recorrido del grano a la taza</li>
+                  <li>Visita al Valle de Cocora</li>
+                </ul>
+              </details>
+              <a class="link" href="#cotizador" data-destino="cafe">Cotizar Eje Cafetero</a>
+            </div>
+          </article>
+
+          <article class="card" data-tipo="naturaleza">
+            <figure><img src="img/amazonas.svg" alt="Río y selva densa al atardecer en el Amazonas colombiano" loading="lazy" width="1200" height="800"></figure>
+            <div class="card-body">
+              <h3>Amazonas</h3>
+              <p class="meta">5 días · desde $2.100.000 por persona</p>
+              <p>Selva, río y comunidades indígenas con guía local.</p>
+              <details>
+                <summary>Qué incluye</summary>
+                <ul>
+                  <li>Tiquetes aéreos a Leticia</li>
+                  <li>Caminata de selva y avistamiento de aves</li>
+                  <li>Navegación por el río Amazonas</li>
+                </ul>
+              </details>
+              <a class="link" href="#cotizador" data-destino="amazonas">Cotizar Amazonas</a>
+            </div>
+          </article>
+
+          <article class="card" data-tipo="naturaleza">
+            <figure><img src="img/tatacoa.svg" alt="Desierto rojizo con cactus bajo un cielo estrellado en la Tatacoa" loading="lazy" width="1200" height="800"></figure>
+            <div class="card-body">
+              <h3>Desierto de la Tatacoa</h3>
+              <p class="meta">3 días · desde $890.000 por persona</p>
+              <p>Cañones rojizos de día y cielo estrellado de noche.</p>
+              <details>
+                <summary>Qué incluye</summary>
+                <ul>
+                  <li>Transporte terrestre desde Bogotá</li>
+                  <li>Noche de observación astronómica</li>
+                  <li>Recorrido por el Cuzco y Los Hoyos</li>
+                </ul>
+              </details>
+              <a class="link" href="#cotizador" data-destino="tatacoa">Cotizar Tatacoa</a>
+            </div>
+          </article>
+
+          <article class="card card-wide" data-tipo="playa">
+            <figure><img src="img/tayrona.svg" alt="Playa de arena clara entre montañas verdes en el Parque Tayrona" loading="lazy" width="1200" height="800"></figure>
+            <div class="card-body">
+              <h3>Santa Marta y Tayrona</h3>
+              <p class="meta">4 días · desde $1.690.000 por persona</p>
+              <p>Playas escondidas entre la selva y la Sierra Nevada.</p>
+              <details>
+                <summary>Qué incluye</summary>
+                <ul>
+                  <li>Hotel en Santa Marta</li>
+                  <li>Entrada y caminata guiada al Parque Tayrona</li>
+                  <li>Visita a Minca y sus cascadas</li>
+                </ul>
+              </details>
+              <a class="link" href="#cotizador" data-destino="tayrona">Cotizar Tayrona</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAQUETES -->
+    <section class="section section-mist" id="paquetes" aria-labelledby="paquetes-titulo">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="paquetes-titulo">Elige cuánta comodidad quieres en tu viaje</h2>
+          <p>El destino es el mismo. Cambia el hotel, las comidas y el nivel de acompañamiento.</p>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Esencial</h3>
+            <p class="plan-price">Precio base</p>
+            <ul>
+              <li>Hotel 3 estrellas</li>
+              <li>Desayuno incluido</li>
+              <li>Traslados aeropuerto</li>
+            </ul>
+            <a class="btn btn-ink btn-block" href="#cotizador" data-paquete="esencial">Cotizar Esencial</a>
+          </article>
+          <article class="plan plan-main">
+            <p class="plan-flag">La más elegida</p>
+            <h3>Confort</h3>
+            <p class="plan-price">Base + 25 %</p>
+            <ul>
+              <li>Hotel 4 estrellas</li>
+              <li>Desayuno y una cena</li>
+              <li>Traslados y tours guiados</li>
+              <li>Seguro de viaje</li>
+            </ul>
+            <a class="btn btn-sun btn-block" href="#cotizador" data-paquete="confort">Cotizar Confort</a>
+          </article>
+          <article class="plan">
+            <h3>Premium</h3>
+            <p class="plan-price">Base + 60 %</p>
+            <ul>
+              <li>Hotel 5 estrellas o boutique</li>
+              <li>Todas las comidas</li>
+              <li>Guía privado y experiencias exclusivas</li>
+              <li>Seguro de viaje</li>
+            </ul>
+            <a class="btn btn-ink btn-block" href="#cotizador" data-paquete="premium">Cotizar Premium</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="section" id="proceso" aria-labelledby="proceso-titulo">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="proceso-titulo">Del primer mensaje al aeropuerto en cuatro pasos</h2>
+        </div>
+        <ol class="steps">
+          <li><h3>Cuéntanos tu plan</h3><p>Destino, fechas y cuántos viajan. Puedes usar el cotizador de esta página.</p></li>
+          <li><h3>Recibe tu propuesta</h3><p>Un asesor te envía itinerario y precio final en menos de 24 horas.</p></li>
+          <li><h3>Confirma con un anticipo</h3><p>Reservamos hoteles, vuelos y tours a tu nombre.</p></li>
+          <li><h3>Viaja con respaldo</h3><p>Tienes una línea de ayuda durante todo el viaje.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- COTIZADOR -->
+    <section class="section section-ink" id="cotizador" aria-labelledby="cot-titulo">
+      <div class="wrap quote">
+        <div class="quote-copy">
+          <h2 id="cot-titulo">Calcula el valor de tu viaje</h2>
+          <p>Es un valor de referencia. Un asesor confirma disponibilidad y precio final antes de que pagues.</p>
+        </div>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div class="field">
+            <label for="qDestino">Destino</label>
+            <select id="qDestino" name="destino" required>
+              <option value="cartagena">Cartagena de Indias · 4 días</option>
+              <option value="sanandres">San Andrés · 5 días</option>
+              <option value="cafe">Eje Cafetero · 4 días</option>
+              <option value="amazonas">Amazonas · 5 días</option>
+              <option value="tatacoa">Desierto de la Tatacoa · 3 días</option>
+              <option value="tayrona">Santa Marta y Tayrona · 4 días</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qPaquete">Paquete</label>
+            <select id="qPaquete" name="paquete" required>
+              <option value="esencial">Esencial</option>
+              <option value="confort" selected>Confort</option>
+              <option value="premium">Premium</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qAdultos">Adultos</label>
+            <input id="qAdultos" name="adultos" type="number" min="1" max="12" value="2" inputmode="numeric" required>
+          </div>
+          <div class="field">
+            <label for="qNinos">Niños (menores de 12 años, 30 % menos)</label>
+            <input id="qNinos" name="ninos" type="number" min="0" max="8" value="0" inputmode="numeric">
+          </div>
+          <p class="form-error" id="quoteError" role="alert" hidden></p>
+          <button class="btn btn-sun btn-block" type="submit">Calcular valor</button>
+          <div class="result" id="quoteResult" role="status" aria-live="polite" hidden>
+            <p class="result-label">Valor estimado</p>
+            <p class="result-total" id="resultTotal"></p>
+            <p class="result-detail" id="resultDetail"></p>
+            <a class="btn btn-ghost btn-block" href="#contacto">Pedir esta cotización</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS -->
+    <section class="section" id="preguntas" aria-labelledby="faq-titulo">
+      <div class="wrap faq">
+        <div class="section-head">
+          <h2 id="faq-titulo">Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>¿Los precios incluyen los tiquetes aéreos?</summary>
+            <p>Depende del destino. San Andrés y Amazonas incluyen tiquetes desde Bogotá. En los demás destinos el transporte terrestre va incluido.</p>
+          </details>
+          <details>
+            <summary>¿Puedo cambiar las fechas después de reservar?</summary>
+            <p>Sí, hasta 15 días antes del viaje y sujeto a disponibilidad. Los cambios pueden tener un costo adicional según el proveedor.</p>
+          </details>
+          <details>
+            <summary>¿Cómo se paga?</summary>
+            <p>Con un anticipo del 30 % para confirmar y el saldo antes de viajar. Aceptamos transferencia y tarjeta.</p>
+          </details>
+          <details>
+            <summary>¿Hacen viajes para grupos o empresas?</summary>
+            <p>Sí. Para grupos de más de 12 personas, escríbenos y armamos un plan a la medida.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section-mist" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="wrap contact">
+        <div class="contact-copy">
+          <h2 id="contacto-titulo">Habla con un asesor</h2>
+          <p>Déjanos tus datos y te escribimos con una propuesta.</p>
+          <address>
+            <p>Calle 72 # 10-34, Bogotá</p>
+            <p><a href="mailto:hola@brujulaviajes.example">hola@brujulaviajes.example</a></p>
+            <p><a href="tel:+576010000000">(601) 000 0000</a></p>
+            <p>Lunes a sábado, 8:00 a. m. a 6:00 p. m.</p>
+          </address>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cNombre">Nombre completo</label>
+            <input id="cNombre" name="nombre" type="text" autocomplete="name" required>
+            <span class="err" data-for="cNombre"></span>
+          </div>
+          <div class="field">
+            <label for="cCorreo">Correo electrónico</label>
+            <input id="cCorreo" name="correo" type="email" autocomplete="email" required>
+            <span class="err" data-for="cCorreo"></span>
+          </div>
+          <div class="field">
+            <label for="cTel">Teléfono o WhatsApp</label>
+            <input id="cTel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required>
+            <span class="err" data-for="cTel"></span>
+          </div>
+          <div class="field">
+            <label for="cMensaje">¿Qué plan tienes en mente?</label>
+            <textarea id="cMensaje" name="mensaje" rows="4" required></textarea>
+            <span class="err" data-for="cMensaje"></span>
+          </div>
+          <button class="btn btn-ink btn-block" type="submit">Enviar solicitud</button>
+          <p class="form-ok" id="contactOk" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-in">
+      <div>
+        <p class="footer-brand">Brújula Viajes</p>
+        <p>Agencia de viajes por Colombia. Proyecto académico de Ingeniería Web I.</p>
+      </div>
+      <nav aria-label="Enlaces del pie de página">
+        <ul>
+          <li><a href="#destinos">Destinos</a></li>
+          <li><a href="#paquetes">Paquetes</a></li>
+          <li><a href="#cotizador">Cotizar</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <p class="copy">© 2026 Brújula Viajes. Los datos de contacto y precios son ficticios.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
